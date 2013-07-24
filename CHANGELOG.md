@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.0.0 - 2013-07-23
+
+Total rewrite of bower.
+The list bellow highlights the most important stuff.   
+For a complete list of changes that this rewrite and release brings please read: https://github.com/bower/bower/wiki/Rewrite-state
+
+
+- Clear architecture and separation of concerns
+- Much much faster
+- `--json` output for all commands
+- `--offline` usage for all commands, except `register`
+- Proper `install` and `update` commands, similar to `npm` in behaviour
+- Named endpoints when installing, e.g. `bower install backbone-amd=backbone#~1.0.0`
+- New interactive conflict resolution strategy
+- Prevent human errors when using `register`
+- New `home` command, similar to `npm`
+- New `cache list` command
+- New `prune` command
+- Many many general bug fixes
+
+Non-backwards compatible changes:
+
+- `json` from .bowerrc is no longer used
+- Programmatic usage changed, specially the commands interface
+
+Users upgrading from `bower-canary` and `bower@~0.x.x` should do a `bower cache clean`.   
+Additionally you may remove the `~/.bower` folder manually since it's no longer used.
+On Windows the folder is located in `AppData/bower`.
+
+
+## 0.10.0 - 2013-07-02
+
+- __Allow specific commits to be targeted__ ([#275](https://github.com/bower/bower/issues/275))
+- __Change bower default folder from `components` to `bower_components`__ ([#434](https://github.com/bower/bower/issues/434))
+- __Support semver pre-releases and builds__ ([#188](https://github.com/bower/bower/issues/188))
+- Use `Content-Type` and `Content-Disposition` to guess file types, such as zip files ([#454](https://github.com/bower/bower/pull/454))
+- Fix bower failing silently when using an invalid version value in the bower.json file ([#439](https://github.com/bower/bower/issues/439))
+- Fix bower slowness when downloading after redirects ([#437](https://github.com/bower/bower/issues/437))
+- Detect and error out with a friendly message when `git` is not installed ([#362](https://github.com/bower/bower/issues/362))
+- Add `--quiet` and `--silent` CLI options ([#343](https://github.com/bower/bower/issues/343))
+- Minor programmatic usage improvements
+
+_NOTE_: The `components` folder will still be used if already created, making it easier for users to upgrade.
+
 ## 0.9.2 - 2013-04-28
 - Better fix for [#429](https://github.com/bower/bower/issues/429)
 
